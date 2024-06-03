@@ -82,7 +82,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       Icon(Icons.female, color: Colors.white, size: 80),
                       SizedBox(height: 10),
                       Text(
-                        "Female",
+                        "Femalee",
                         style: TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.bold,
