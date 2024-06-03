@@ -215,7 +215,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       ),
                       Text(
                         "$age",
-                        style: TextStyle(color: Colors.white,fontSize: 60,fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.bold),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
