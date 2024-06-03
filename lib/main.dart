@@ -24,6 +24,9 @@ class BmiCalculator extends StatefulWidget {
 
 class _BmiCalculatorState extends State<BmiCalculator> {
   double _sliderValue = 0.5; // Initial slider value
+  double weight = 0.0;
+  double weight1 = 70.0;
+  int age = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -47,17 +50,18 @@ class _BmiCalculatorState extends State<BmiCalculator> {
               Expanded(
                 child: Container(
                   margin: EdgeInsets.all(15.0),
-                  padding: EdgeInsets.symmetric(horizontal: 2.5, vertical: 16.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 2.5, vertical: 16.0),
                   color: Colors.black,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Icon(Icons.male, color: Colors.white, size: 50),
+                      Icon(Icons.male, color: Colors.white, size: 80),
                       SizedBox(height: 10),
                       Text(
                         "Male",
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -69,17 +73,18 @@ class _BmiCalculatorState extends State<BmiCalculator> {
               Expanded(
                 child: Container(
                   margin: EdgeInsets.all(15.0),
-                  padding: EdgeInsets.symmetric(horizontal: 2.5, vertical: 16.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 2.5, vertical: 16.0),
                   color: Colors.black,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Icon(Icons.female, color: Colors.white, size: 50),
+                      Icon(Icons.female, color: Colors.white, size: 80),
                       SizedBox(height: 10),
                       Text(
                         "Female",
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -95,18 +100,169 @@ class _BmiCalculatorState extends State<BmiCalculator> {
             color: Colors.black,
             padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
             margin: EdgeInsets.all(15.0),
-            child: Slider(
-              value: _sliderValue,
-              onChanged: (newValue) {
-                setState(() {
-                  _sliderValue = newValue;
-                });
-              },
-              min: 0.0,
-              max: 1.0,
-              activeColor: Colors.white,
-              inactiveColor: Colors.grey,
+            child: Column(
+              children: [
+                Text(
+                  "Height",
+                  style: TextStyle(
+                      fontSize: 50,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "$weight",
+                  style: TextStyle(color: Colors.white,fontSize: 40),
+                ),
+
+                Slider(
+                  value: weight,
+                  onChanged: (newValue) {
+                    setState(() {
+                      weight = newValue;
+                    });
+                  },
+                  min: 0.0,
+                  max: 10.0,
+                  divisions: 10,
+                  activeColor: Colors.white,
+                  inactiveColor: Colors.grey,
+                  thumbColor: Colors.pink,
+                ),
+              ],
             ),
+
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  padding:
+                  EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  color: Colors.black,
+                  child: Column(
+                    children: [
+                      Text(
+                        "Enter Age",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        "$age",
+                        style: TextStyle(color: Colors.white,fontSize: 60,fontWeight: FontWeight.bold),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+
+                          Center(
+                            child: CircleAvatar(
+
+                              child: IconButton(
+
+                                icon: Icon(Icons.add,color: Colors.white,size: 25,),
+                                onPressed: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                  print('Age Added');
+                                },
+                              ),
+                            ),
+                          ),
+
+                          SizedBox(
+
+                            width: 5,
+                          ),
+
+                          Center(
+                            child: CircleAvatar(
+                              child: IconButton(
+                                icon: Icon(Icons.remove),
+                                onPressed: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                  print('Age Added');
+                                },
+                              ),
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.all(15.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  color: Colors.black,
+                  child: Column(
+                    children: [
+                      Text(
+                        "Enter Age",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        "$age",
+                        style: TextStyle(color: Colors.white,fontSize: 60,fontWeight: FontWeight.bold),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+
+                           Center(
+                             child: CircleAvatar(
+
+                                child: IconButton(
+
+                                  icon: Icon(Icons.add,color: Colors.white,size: 25,),
+                                  onPressed: () {
+                                    setState(() {
+                                      age++;
+                                    });
+                                    print('Age Added');
+                                  },
+                                ),
+                              ),
+                           ),
+
+                          SizedBox(
+
+                            width: 5,
+                          ),
+
+                             Center(
+                               child: CircleAvatar(
+                                child: IconButton(
+                                  icon: Icon(Icons.remove),
+                                  onPressed: () {
+                                    setState(() {
+                                      age--;
+                                    });
+                                    print('Age Added');
+                                  },
+                                ),
+                                                           ),
+                             ),
+
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
