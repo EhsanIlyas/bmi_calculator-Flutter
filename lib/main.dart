@@ -51,7 +51,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 child: Container(
                   margin: EdgeInsets.all(15.0),
                   padding:
-                      EdgeInsets.symmetric(horizontal: 2.5, vertical: 16.0),
+                  EdgeInsets.symmetric(horizontal: 2.5, vertical: 16.0),
                   color: Colors.black,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -74,7 +74,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 child: Container(
                   margin: EdgeInsets.all(15.0),
                   padding:
-                      EdgeInsets.symmetric(horizontal: 2.5, vertical: 16.0),
+                  EdgeInsets.symmetric(horizontal: 2.5, vertical: 16.0),
                   color: Colors.black,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -111,7 +111,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 ),
                 Text(
                   "$weight",
-                  style: TextStyle(color: Colors.white,fontSize: 40),
+                  style: TextStyle(color: Colors.white, fontSize: 40),
                 ),
 
                 Slider(
@@ -151,7 +151,9 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       ),
                       Text(
                         "$age",
-                        style: TextStyle(color: Colors.white,fontSize: 60,fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.white,
+                            fontSize: 60,
+                            fontWeight: FontWeight.bold),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -162,7 +164,8 @@ class _BmiCalculatorState extends State<BmiCalculator> {
 
                               child: IconButton(
 
-                                icon: Icon(Icons.add,color: Colors.white,size: 25,),
+                                icon: Icon(
+                                  Icons.add, color: Colors.white, size: 25,),
                                 onPressed: () {
                                   setState(() {
                                     age++;
@@ -202,7 +205,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 child: Container(
                   margin: EdgeInsets.all(15.0),
                   padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -215,55 +218,70 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       ),
                       Text(
                         "$age",
-                        style: TextStyle(color: Colors.white,fontSize: 60,fontWeight: FontWeight.bold),
+                        style: TextStyle(color: Colors.white,
+                            fontSize: 60,
+                            fontWeight: FontWeight.bold),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
 
-                           Center(
-                             child: CircleAvatar(
+                          Center(
+                            child: CircleAvatar(
 
-                                child: IconButton(
+                              child: IconButton(
 
-                                  icon: Icon(Icons.add,color: Colors.white,size: 25,),
-                                  onPressed: () {
-                                    setState(() {
-                                      age++;
-                                    });
-                                    print('Age Added');
-                                  },
-                                ),
+                                icon: Icon(
+                                  Icons.add, color: Colors.white, size: 25,),
+                                onPressed: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                  print('Age Added');
+                                },
                               ),
-                           ),
+                            ),
+                          ),
 
                           SizedBox(
 
                             width: 5,
                           ),
 
-                             Center(
-                               child: CircleAvatar(
-                                child: IconButton(
-                                  icon: Icon(Icons.remove),
-                                  onPressed: () {
-                                    setState(() {
-                                      age--;
-                                    });
-                                    print('Age Added');
-                                  },
-                                ),
-                                                           ),
-                             ),
+                          Center(
+                            child: CircleAvatar(
+                              child: IconButton(
+                                icon: Icon(Icons.remove),
+                                onPressed: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                  print('Age Added');
+                                },
+                              ),
+                            ),
+                          ),
 
                         ],
                       ),
+
                     ],
                   ),
                 ),
               ),
             ],
           ),
+          Expanded(
+            child: Container(
+              padding:
+              EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              color: Colors.pink,
+              child: Center(child: Text("Calculate BMI",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.white),)),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          )
         ],
       ),
     );
