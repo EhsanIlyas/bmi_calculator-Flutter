@@ -143,10 +143,10 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                   child: Column(
                     children: [
                       Text(
-                        "Enter Age",
+                        "Age",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 25,
+                            fontSize: 30,
                             color: Colors.white),
                       ),
                       Text(
@@ -210,14 +210,15 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                   child: Column(
                     children: [
                       Text(
-                        "Enter Age",
+                        "Weight",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 25,
+                            fontSize: 30
+                            ,
                             color: Colors.white),
                       ),
                       Text(
-                        "$age",
+                        "$weight1",
                         style: TextStyle(color: Colors.white,
                             fontSize: 60,
                             fontWeight: FontWeight.bold),
@@ -235,7 +236,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                                   Icons.add, color: Colors.white, size: 25,),
                                 onPressed: () {
                                   setState(() {
-                                    age++;
+                                    weight1++;
                                   });
                                   print('Age Added');
                                 },
