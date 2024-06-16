@@ -2,7 +2,9 @@ import 'package:bmi_calculator/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/utils/variables.dart';
 
+
 import '../Components/functions.dart';
+
 
 class BmiCalculator extends StatefulWidget {
   const BmiCalculator({super.key});
@@ -52,8 +54,8 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                   isSelected: isMaleSelected,
                   iconData: Icons.male,
                   label: "Male",
-                  activeColor: Colors.blueAccent,
-                  inactiveColor: Colors.grey,
+                  activeColor: Colors.pink,
+                  inactiveColor: Colors.black,
                   iconColor: Colors.white,
                   textColor: Colors.white,
                 ),
@@ -61,11 +63,11 @@ class _BmiCalculatorState extends State<BmiCalculator> {
               Expanded(
                 child: buildGenderSelectionContainer(
                   onTap: _toggleFemaleSelection,
-                  isSelected: !isMaleSelected,
+                  isSelected: isFemaleSelected,
                   iconData: Icons.female,
                   label: "Female",
-                  activeColor: Colors.pinkAccent,
-                  inactiveColor: Colors.grey,
+                  activeColor: Colors.pink,
+                  inactiveColor: Colors.black,
                   iconColor: Colors.white,
                   textColor: Colors.white,
                 ),
@@ -75,8 +77,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
           const SizedBox(height: 10),
           Container(
             color: Colors.black,
-            padding:
-                const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
             margin: const EdgeInsets.all(15.0),
             child: Column(
               children: [
@@ -88,7 +89,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  "$height",
+                  "${height.toStringAsFixed(1)}", // Format to one decimal place
                   style: const TextStyle(color: Colors.white, fontSize: 40),
                 ),
                 Slider(
@@ -100,7 +101,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                   },
                   min: 0.0,
                   max: 10.0,
-                  divisions: 10,
+                  divisions: 100,
                   activeColor: Colors.white,
                   inactiveColor: Colors.grey,
                   thumbColor: Colors.pink,
@@ -112,7 +113,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
             children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.all(15.0),
+                  margin: const EdgeInsets.all(15.0),
                   padding: const EdgeInsets.symmetric(
                       horizontal: 20.0, vertical: 20.0),
                   color: Colors.black,
@@ -156,7 +157,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                           Center(
                             child: CircleAvatar(
                               child: IconButton(
-                                icon: const Icon(Icons.remove),
+                                icon: const Icon(Icons.remove, color: Colors.white),
                                 onPressed: () {
                                   setState(() {
                                     age--;
@@ -174,9 +175,9 @@ class _BmiCalculatorState extends State<BmiCalculator> {
               ),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.all(15.0),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                  margin: const EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 20.0),
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -214,11 +215,11 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Center(
                             child: CircleAvatar(
                               child: IconButton(
-                                icon: Icon(Icons.remove),
+                                icon: const Icon(Icons.remove, color: Colors.white),
                                 onPressed: () {
                                   setState(() {
                                     weight--;
@@ -237,23 +238,28 @@ class _BmiCalculatorState extends State<BmiCalculator> {
             ],
           ),
           Expanded(
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-              color: Colors.pink,
-              child: const Center(
-                child: Text(
-                  "Calculate BMI",
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+            child: GestureDetector(
+              onTap: () {
+                // Implement the BMI calculation logic here
+                print('BMI Calculated');
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0, vertical: 10.0),
+                color: Colors.pink,
+                child: const Center(
+                  child: Text(
+                    "Calculate BMI",
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
                 ),
               ),
             ),
           ),
-          const SizedBox(
-            height: 10,
-          )
+          const SizedBox(height: 10)
         ],
       ),
     );
