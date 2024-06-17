@@ -1,6 +1,7 @@
 import 'package:bmi_calculator/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/utils/variables.dart';
+import 'package:bmi_calculator/Screens/Screentwo.dart';
 
 
 import '../Components/functions.dart';
@@ -243,10 +244,22 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                 // Implement the BMI calculation logic here
                 print('BMI Calculated');
               },
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0, vertical: 10.0),
-                color: Colors.pink,
+              child:ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => screentwo(),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white, backgroundColor: Colors.blue, // Text color
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10), // Rounded corners
+                  ),
+                ),
                 child: const Center(
                   child: Text(
                     "Calculate BMI",
@@ -254,6 +267,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
+
                   ),
                 ),
               ),
