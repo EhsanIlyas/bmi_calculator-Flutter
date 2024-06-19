@@ -249,7 +249,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => screentwo(),
+                      builder: (context) => ScreenTwo(),
                     ),
                   );
                 },
